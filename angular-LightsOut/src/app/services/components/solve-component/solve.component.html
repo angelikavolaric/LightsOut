@@ -2,6 +2,7 @@
 
   <div id="solve">
     <div class="riddleContainer row">
+      
       <div class="col-2 col-md-2 col-sm-12 problems" *ngFor="let problem of problemSequence; let i=index">
             <div class="buttons" *ngFor="let n of sizeOfProblem[i]; let x=index"> <!--vsaka števka problem posebej--> <!--col-{{ 12 / problems[i].size }}-->
               <div *ngFor="let p of sizeOfProblem[i]; let y=index">
@@ -14,18 +15,13 @@
               </button>
               </div>
             </div>
-            <button class="solutionButton" (click)="problemButtonClick(problems[i]._id)">Get solution</button> <!--(onClick)="show(problems[i])""-->
+            <button class="solutionButton" (click)="problemButtonClick(problems[i]._id)">Get solution</button> 
             <button class="resetButton" (click)="resetButtonClick(problems[i]._id, i)">Reset</button>
 <!---vsak button rabi id? da ga lahko spremenimo - oz samo problemId in lokacijo-->
-      </div>
 
+      </div>
     </div>
 
   </div>
 
-
-
-  <div id="create">
-    
-  </div>
 

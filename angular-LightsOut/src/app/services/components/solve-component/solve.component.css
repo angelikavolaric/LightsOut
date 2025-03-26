@@ -19,6 +19,7 @@ main {
     text-align: center;
     font-family: sans-serif;
     overflow: hidden;
+
 }
 
 #solve #create{
@@ -37,6 +38,7 @@ main {
     text-align: center;
     align-items: center;
     display: flex;
+    margin:auto;
 }
 
 /*   Solve riddle   */
@@ -54,6 +56,7 @@ main {
     width: inherit;
     margin: 0 auto;
     text-align: center;
+
     /*border: 0.5ex solid rgb(41, 47, 137);*/
 }
 
@@ -62,6 +65,7 @@ main {
     height: 10ex;
     border-radius: 0;
     margin: 0;
+    border: 0;
     padding: 0;
     background-color: #808080;
     text-align: center;
@@ -74,12 +78,11 @@ main {
 
 
 .buttons button {
-    border: 0.5ex solid black;
+    outline: 0.5ex solid black;
     border-collapse: collapse;
     color: #00000000;
     overflow: hidden;
     text-align: center;
-    
 }
 
 .field:hover  {

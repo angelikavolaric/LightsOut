@@ -1,4 +1,3 @@
-import { Problem } from "./problem";
 
 export class Solution {
     _id!: string;

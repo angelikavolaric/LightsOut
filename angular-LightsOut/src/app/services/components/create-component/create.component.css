@@ -1,15 +1,4 @@
-/*body*/
-.createNavButton {
-    background-color: #E9FF76;
-}
 
-.solveNavButton {
-    background-color: gray;
-}
-
-.createButton:hover {
-    background-color: #B6CC43;
-}
 
 body {
     background-color: darkgray;
@@ -21,7 +10,7 @@ main {
     overflow: hidden;
 }
 
- #create{
+#create{
     text-align: center;
     padding: 2ex 0ex 2ex 0ex;
     background-color: #B6CC43;
@@ -35,15 +24,14 @@ main {
     align-items: center;
     display: flex;
 }
-
 /*   Solve riddle   */
 
 .problems {
-    text-align: center;
-    padding: 2ex;    
-    margin: 2ex;
+    text-align: center;  
+    margin: auto;
     width: auto;
     position: relative;
+    
 }
 
 .buttons {
@@ -51,13 +39,13 @@ main {
     width: inherit;
     margin: 0 auto;
     text-align: center;
-    /*border: 0.5ex solid rgb(41, 47, 137);*/
 }
 
 .field {
     width: 10ex;
     height: 10ex;
     border-radius: 0;
+    border: 0;
     margin: 0;
     padding: 0;
     background-color: #808080;
@@ -71,10 +59,10 @@ main {
 
 
 .buttons button {
-    border: 0.5ex solid black;
-    border-collapse: collapse;
+   /* border: 0.5ex solid black;*/
+    outline: 0.5ex solid black;
+
     color: #00000000;
-    overflow: hidden;
     text-align: center;
     
 }
@@ -136,3 +124,39 @@ main {
     }
 }
 
+#buttonInput input[type="button"] {
+    border-color: #B6CC43;
+    border-radius: 1ex;
+    border-style: none;
+    background-color: #E9FF76;
+}
+
+
+#buttonInput input[type="button"]:hover {
+    border-color: #B6CC43;
+    background-color: #A5BB32;
+    
+}
+
+#buttonInput {
+    width: max-content;
+    margin: auto;
+    width: auto;
+    position: relative;
+    margin-bottom: 3ex;
+    
+}
+
+#sizeInput {
+    display: inline;
+    
+}
+
+.resizeButton {
+    margin-left: 1ex;
+}
+.saveButton {
+    margin-left: 10ex;
+    display: inline;
+    
+}

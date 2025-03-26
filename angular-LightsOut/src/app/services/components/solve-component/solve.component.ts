@@ -13,7 +13,7 @@ import { error } from 'node:console';
   selector: 'solve-root',
   imports: [RouterModule, CommonModule],
   templateUrl: './solve.component.html',
-  styleUrl: './solve.component.css, ../../../../'
+  styleUrl: './solve.component.css'
 })
 export class SolveComponent {
   title = 'LightsOut';
@@ -45,12 +45,15 @@ export class SolveComponent {
 
   solutionPoints: number[] = [] //for each wanted solution the bord fills with points needed to be pressed (and number of times)
 
- solutionStep: SolutionStep = 
-    { _id: "0", actions: [3, 6, 10, 13, 15], actionSeq: [1, 2, 3, 4, 5], fkSolution: "0"};
+ /*solutionStep: SolutionStep = 
+    { _id: "0", actions: [3, 6, 10, 13, 15], actionSeq: [1, 2, 3, 4, 5], fkSolution: "0"};*/
+
+    solutionStep: SolutionStep = 
+    { _id: "0", actions: [0, 1, 2, 7], actionSeq: [1, 2, 3, 4], fkSolution: "0"}; //reši 1
 
     // solutionStep[]->mult.
 
-  constructor(private problemService: ProblemService, private solutionService: SolutionService) { }
+  constructor() { }
 
   ngOnInit(): void {
     for(let pr in this.problems) {
@@ -163,10 +166,10 @@ export class SolveComponent {
 
   resetButtonClick(problemId: string, problemIndex: number): void {
    // let resProblem: Problem = this.problemService.getProblem(problemId);
-    this.problemService.getProblem(problemId).subscribe((problem: Problem) => {
+   /* this.problemService.getProblem(problemId).subscribe((problem: Problem) => {
       this.problem = problem
     })
-    this.problems[problemIndex] = this.problem
+    this.problems[problemIndex] = this.problem*/
   }
 
 }
