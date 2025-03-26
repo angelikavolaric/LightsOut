@@ -48,9 +48,12 @@ export class SolveComponent {
  /*solutionStep: SolutionStep = 
     { _id: "0", actions: [3, 6, 10, 13, 15], actionSeq: [1, 2, 3, 4, 5], fkSolution: "0"};*/
 
-    solutionStep: SolutionStep = 
-    { _id: "0", actions: [0, 1, 2, 7], actionSeq: [1, 2, 3, 4], fkSolution: "0"}; //reši 1
-
+    solutionSteps: SolutionStep[] = [
+    { _id: "0", action: 0, actionSeq: 1, fkSolution: "0"},
+    { _id: "1", action: 1, actionSeq: 2, fkSolution: "0"},
+    { _id: "2", action: 2, actionSeq: 3, fkSolution: "0"},
+    { _id: "3", action: 7, actionSeq: 4, fkSolution: "0"} //reši 1
+    ]
     // solutionStep[]->mult.
 
   constructor() { }
@@ -85,21 +88,9 @@ export class SolveComponent {
   showSolution(problemId: string): void {
     /*getSolution(problemId); */
     /*get problem problems(id) */
-    
     let newSol = new Array(Math.pow(this.problem.size, 2)).fill(0);
-    /*this.solutionStep.forEach((ac: SolutionStep) => {
-      ac.actions.forEach((element: number) => {
-        newSol[element] += 1
-      })
-      console.log(newSol)
-    }); {
-      console.log("Problem with showing solution, try later!")
-    }*/
-
-      this.solutionStep.actions.forEach((element: number) => {
-          newSol[element] += 1
-
-          console.log(element)
+      this.solutionSteps.forEach((solStep: SolutionStep) => {
+          newSol[solStep.action] += 1
       }); {
         console.log("Problem with showing solution, try later!")
       }
