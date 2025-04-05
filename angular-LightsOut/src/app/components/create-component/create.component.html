@@ -11,20 +11,17 @@
     <div class="riddleContainer row">
       
       <div class="col-2 col-md-2 col-sm-12 problems" >
-        <div class="buttons" *ngFor="let n of sizeOfProblem; let x=index"> <!--vsaka števka problem posebej--> <!--col-{{ 12 / problems[i].size }}-->
+        <div class="buttons" *ngFor="let n of sizeOfProblem; let x=index">
           <div *ngFor="let p of sizeOfProblem; let y=index">
             <button (click)="changeButtonClick(getIndex(x, y))"
             [ngClass]="{
               'light': problem.sequence[getIndex(x, y)] === 1,
               'field': true}" >
             {{ problem.sequence[getIndex(x, y)] }}
-            <!--div class="solutionDot" *ngIf="chosenRiddle==problems[i]._id && solutionPoints[getIndex(x, y, i)] != 0"></div-->
           </button>
           </div>
         </div>
-        <!--button class="solutionButton" (click)="problemButtonClick(problems[i]._id)">Get solution</button-->
         <button class="resetButton" (click)="resetButtonClick()">Reset</button>
-<!---vsak button rabi id? da ga lahko spremenimo - oz samo problemId in lokacijo-->
      </div>
      </div>
   </div>

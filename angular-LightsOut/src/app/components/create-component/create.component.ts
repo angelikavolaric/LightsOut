@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { Problem } from '../../../problem';
-import { Solution } from '../../../solution';
+import { Problem } from '../../problem';
+import { Solution } from '../../solution';
 import { CommonModule } from '@angular/common';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { SolutionStep } from '../../../solutionStep';
+import { SolutionStep } from '../../solutionStep';
 import { FormsModule } from '@angular/forms';
-import { ProblemService } from '../../problem.service';
+import { ProblemService } from '../../services/problem.service';
 
 @Component({
   selector: 'create-root',

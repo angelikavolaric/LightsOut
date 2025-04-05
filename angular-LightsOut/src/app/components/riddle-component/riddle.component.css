@@ -1,0 +1,97 @@
+body{
+    background-color:#a9a9a9
+}
+
+.riddleContainer{
+    background-color:gray;
+    width:auto;
+    text-align:center;
+    align-items:center;
+    display:flex
+}
+
+.problems{
+    text-align:center;
+    margin:auto;
+    width:auto;
+    position:relative
+}
+
+.buttons{
+    display:flex;
+    width:inherit;
+    margin:0 auto;
+    text-align:center
+}
+
+.field{
+    width:10ex;
+    height:10ex;
+    border-radius:0;
+    border:0;
+    margin:0;
+    padding:0;
+    background-color:grey;
+    text-align:center;
+    position:relative
+}
+
+.light{
+    background-color:#e9ff76
+}
+
+.buttons button{
+    outline:.5ex solid #000;
+    color:#00000000;
+    text-align:center
+}
+
+.field:hover{
+    background-color:#585858
+}
+.light:hover{
+    background-color:#b6cc43
+}
+
+.buttons .solutionDot{
+    height:3ex;
+    width:3ex;
+    border-radius:1.5ex;
+    background-color:#8d0081;
+    border-color:#8d008100;
+    display:block;
+    margin:auto;
+    position:absolute;
+    top:0;margin-top:3ex;
+    margin-left:3ex
+}
+
+.resetButton, .solutionButton{
+    border:#00000000;
+    color:#000;
+    margin-top:2ex;
+    float:left;
+    border-radius:.5ex
+}
+
+.resetButton{
+    float:right
+}
+
+@media (max-width:896px)
+{
+    .field{
+    max-width:7ex;
+    max-height:7ex
+}
+    .problems{margin:auto;
+        padding:auto
+    }
+    .buttons .solutionDot{
+        margin-top:2ex;
+        margin-left:2ex;
+        max-height:2ex;
+        max-width:2ex;
+        border-radius:1ex
+    }}
+

@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { Problem } from '../../../problem';
-import { Solution } from '../../../solution';
+import { Problem } from '../../problem';
+import { Solution } from '../../solution';
 import { CommonModule } from '@angular/common';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { SolutionStep } from '../../../solutionStep';
-import { SolutionService } from '../../solution.service';
-import { ProblemService } from '../../problem.service';
+import { SolutionStep } from '../../solutionStep';
+import { SolutionService } from '../../services/solution.service';
+import { ProblemService } from '../../services/problem.service';
 import { error } from 'node:console';
 
 @Component({
@@ -95,13 +95,13 @@ export class SolveComponent {
         console.log("Problem with showing solution, try later!")
       }
       this.solutionPoints=newSol
+     // this.resetButtonClick(problemId, )
     
   }
 
   sortBySize(): void { //sorting on front -- switch bysortingon server?
     this.problems.sort((a, b) => {
          return a.size - b.size;
-
     });
   }
 
