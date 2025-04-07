@@ -6,6 +6,9 @@
       <input class="resizeButton" type="button" value="Resize" (click)="update(sizeNewRiddle)">
     </div>
     <input class="saveButton" type="button" value="Save problem" (click)="saveProblem()">
+    <div class="alert alert-danger" role="alert" *ngIf="savedProblem">
+      This problem cannot be saved! (cannot check if riddle is solvable)
+    </div>
   </div> 
 
     <div class="riddleContainer row">

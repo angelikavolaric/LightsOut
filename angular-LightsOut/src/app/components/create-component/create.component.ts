@@ -18,6 +18,7 @@ export class CreateComponent {
   sizeNewRiddle: number = 2
   sizeOfProblem: boolean[] = [] //iterable size of problem
   problemSequence: boolean[] = [] 
+  savedProblem: boolean = false //if problem is saved
 
    constructor(
     private problemService: ProblemService,
@@ -53,10 +54,12 @@ export class CreateComponent {
 
   resetButtonClick(): void { //reset all to 0
     this.problem.sequence.fill(0)
+    this.savedProblem = false;
    }
 
    saveProblem(): void {
     //this.problemService.postProblem(this.problem)
+    this.savedProblem = true;
     console.log("Cannot check if the riddle is solvable - won't save");
     
    }
