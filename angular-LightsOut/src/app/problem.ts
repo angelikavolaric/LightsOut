@@ -1,5 +1,4 @@
 export class Problem {
-    _id!: string;
-    size!: number;
+    id!: string;
     sequence!: number[];
 }
