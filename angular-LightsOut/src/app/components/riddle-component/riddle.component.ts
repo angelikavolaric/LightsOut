@@ -79,8 +79,11 @@ export class RiddleComponent {
   showSolution(): void {
     this.getProblem( )
     let newSol = new Array(this.problem.sequence.length).fill(0);
-    this.solutionService.getSolutionSteps(this.id).subscribe((ss: SolutionStep[]) => {
+    console.log("id", this.id)
+    this.solutionService.getSolutionStepsForId(this.id).subscribe((ss: any) => {
+      console.log("n", ss)
       ss.forEach(((solStep: SolutionStep) => {
+        console.log("n", solStep.fkSolution)
         newSol[solStep.action] += 1
 
     }))
