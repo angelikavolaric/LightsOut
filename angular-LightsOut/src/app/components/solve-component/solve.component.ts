@@ -1,13 +1,8 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { Component } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
 import { Problem } from '../../problem';
-import { Solution } from '../../solution';
 import { CommonModule } from '@angular/common';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { SolutionStep } from '../../solutionStep';
-import { SolutionService } from '../../services/solution.service';
 import { ProblemService } from '../../services/problem.service';
-import { error } from 'node:console';
 
 @Component({
   selector: 'solve-root',
@@ -19,21 +14,15 @@ import { error } from 'node:console';
 export class SolveComponent {
   title = 'solve LightsOut';
 
-  problems: Problem[] = []
-  problemSequence: number[][] = [];
-  arrayProblem: number[] = [];
-  sizeOfProblem: boolean[][] = [];
-  ngZone: any;
-
+  problems: Problem[] = [] //all displayed problems
+  problemSequence: number[][] = []; //all light/dark sequences for all problems
+  sizeOfProblem: boolean[][] = []; //all problem sizes for iteration
 
 
   constructor(
     private problemService: ProblemService,
     private router: Router,
   ) {}
-
-
-
 
   ngOnInit(): void {
     this.getData() //fetching data
@@ -79,6 +68,4 @@ export class SolveComponent {
         return sizeA - sizeB;
     });
   }
-
-
 }

@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
-import { environment } from '../../environments/environment';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Problem } from '../problem';
-import { SolutionStep } from '../solutionStep';
-import { catchError, flatMap, map, Observable, retry, throwError } from 'rxjs';
+import { catchError, Observable, retry, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,21 +12,21 @@ export class ProblemService {
   constructor(private readonly http: HttpClient,) {}
 
 
-  getProblem(problemId: string): Observable<Problem> {
+  getProblem(problemId: string): Observable<Problem> { //get problem with id
      return this.http.get<Problem>(`${this.apiUrl}/${problemId}`).pipe(
           retry(1),
           catchError(this.handleError)
         )
   }
 
-  postProblem(problem: Problem): Observable<any> {
-    return this.http.post<Problem>(this.apiUrl, Problem).pipe(
-         //retry(1),
+  postProblem(problem: Problem): Observable<any> { //post problem
+    return this.http.post<Problem>(this.apiUrl, problem).pipe(
+         retry(1),
          catchError(this.handleError)
        )
   }
 
-  getProblems(): Observable<any[]> {
+  getProblems(): Observable<any[]> { //get all problems
       return this.http.get<any[]>(this.apiUrl).pipe(
         retry(2),
         catchError(this.handleError)

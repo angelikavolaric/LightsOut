@@ -19,18 +19,15 @@ export class RiddleComponent {
   title = 'riddle LightsOut';
 
   
- // problem = Problem; //specific problem
-  problem: Problem = {id: "0", sequence: []};//{ id: "33", size: 4, sequence: [0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1]};
-  id: string = "0"
-  problemSequence: number[] = [];
-  arrayProblem: number[] = [];
-  sizeOfProblem: boolean[][] = [];
-  isSholutionOn: boolean = false; //If we show solution
-  solution: Solution[] = [];
-  isEnd: boolean = false;
-  solutionPoints: number[] = [] //for each wanted solution the bord fills with points needed to be pressed (and number of times)
+  problem: Problem = {id: "0", sequence: []}; //chosen problem
+  id: string = "0" //first id
+  problemSequence: number[] = []; //sequece of light / dark
 
-    solutionSteps: SolutionStep[] = []
+  sizeOfProblem: boolean[] = []; //size of problem for iteration
+  isSholutionOn: boolean = false; //If we show solution
+  isEnd: boolean = false; //have we succesfully finished riddle - displays congrats
+  solutionPoints: number[] = [] //solution dotson riddle
+
   routeSub: any;
 
     constructor(
@@ -57,7 +54,6 @@ export class RiddleComponent {
     (error) => {
       console.error('Error fetching problems:', error);
     });
-
   }
 
   processProblem() {
@@ -75,46 +71,34 @@ export class RiddleComponent {
     this.showSolution()
   }
 
-  /*we fill array with solution - only one for now!!!!!!!!!!!!!!!!!*/
-  showSolution(): void {
+  showSolution(): void { //getting solution for ptoblem
     this.getProblem( )
     let newSol = new Array(this.problem.sequence.length).fill(0);
-    console.log("id", this.id)
     this.solutionService.getSolutionStepsForId(this.id).subscribe((ss: any) => {
-      console.log("n", ss)
       ss.forEach(((solStep: SolutionStep) => {
-        console.log("n", solStep.fkSolution)
-        newSol[solStep.action] += 1
-
-    }))
-    },
+        newSol[solStep.action] += 1 //each solution point added based on buttonIndex
+    }))},
     (error) => {
       console.error('Error fetching problems:', error);
     });
     console.log("newSol",newSol)
 
-      this.solutionPoints=newSol
+      this.solutionPoints=newSol //update - create solution
       this.isSholutionOn = true
-      
-    
   }
 
 
   /* Solve Buttons */
 
-  revertValue(value: number): number {
+  revertValue(value: number): number {  //revert button value (light/dark)
     if(value == 0){
       return 1;
     }
-
     return 0;
-
   }
 
- 
 
-  solveButtonClick(buttonId: number): void {
-  //TODO: curr for chosen problem
+  solveButtonClick(buttonId: number): void { //changing of buttons
   let seq = this.problem.sequence
   let size = Math.sqrt(this.problem.sequence.length)
   
@@ -151,11 +135,6 @@ export class RiddleComponent {
   seq[buttonId] = this.revertValue(seq[buttonId])  //revert current button
 
   this.problem.sequence = seq
-  this.isEnd = this.problemSequence.every(element => element === 0);
-
-    return 
+  this.isEnd = this.problemSequence.every(element => element === 0); 
   }
-    
-    
-
 }
