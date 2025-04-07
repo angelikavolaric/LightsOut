@@ -15,7 +15,6 @@ export class SolutionService {
   constructor(private http: HttpClient, ) {  }
 
   getSolution(problemId: string ): Observable<Solution> {
-   // /solutions/problem/{id}
     return this.http.get<Solution>(`${this.apiUrl}/solutions/?fkProblem=${problemId}`).pipe(
       retry(1),
       catchError(this.handleError)
@@ -23,29 +22,18 @@ export class SolutionService {
   }
 
   getSolutionSteps(problemId: string): Observable<SolutionStep[]> {
-    let solutionId = ""
-    this.getSolution(problemId).subscribe( (sol) =>
-      { solutionId = sol["id"]
-        console.debug(sol)
-        console.debug(sol["id"])
-      })
-
-    return this.http.get<SolutionStep[]>(`${this.apiUrl}/solutionSteps/?fkSolution=${solutionId}`).pipe(
-      retry(1),
-      catchError(this.handleError)
-    )}
-
- /* getSolutionSteps(problemId: string): Observable<SolutionStep[]> {
     return this.getSolution(problemId).pipe(
-      switchMap((sol: Solution) => {
-        const solutionId = sol.id;
-        return this.http.get<SolutionStep[]>(`${this.apiUrl}/solutionSteps/?fkSolution=${solutionId}`);
-      }),
-      retry(1),
-      catchError(this.handleError)
-    );
-  }*/
-      
+      switchMap((sol: any) =>
+      { 
+        let sr = sol[0].id
+        console.log("sr", sr, sol[0].id)
+        return this.http.get<SolutionStep[]>(`${this.apiUrl}/solutionSteps/?fkSolution=${sol[0].id}`).pipe(
+          retry(1),
+          catchError(this.handleError)
+        )
+      }))
+   }
+
 
   private handleError(error: HttpErrorResponse) {
       console.error('An error occurred:', error.error);
