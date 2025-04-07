@@ -26,12 +26,9 @@ export class SolutionService {
     return this.getSolutions().pipe(
       switchMap((sol: any[]) =>
       { 
-       
         for(let i = 0; i < sol.length; i++ ){
-          console.log("ho",sol[i].id, problemId)
           if(sol[i].fkProblem == problemId){
             sr = sol[i]
-            console.log(sr, sol[i])
             return this.http.get<SolutionStep[]>(`${this.apiUrl}/solutionSteps/?fkSolution=${sol[i].id}`).pipe(
               retry(1),
               catchError(this.handleError),

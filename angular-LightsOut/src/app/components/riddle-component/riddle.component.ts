@@ -81,8 +81,6 @@ export class RiddleComponent {
     (error) => {
       console.error('Error fetching problems:', error);
     });
-    console.log("newSol",newSol)
-
       this.solutionPoints=newSol //update - create solution
       this.isSholutionOn = true
   }

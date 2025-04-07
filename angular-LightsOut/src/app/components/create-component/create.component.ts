@@ -56,7 +56,7 @@ export class CreateComponent {
    }
 
    saveProblem(): void {
-    this.problemService.postProblem(this.problem)
+    //this.problemService.postProblem(this.problem)
     console.log("Cannot check if the riddle is solvable - won't save");
     
    }
