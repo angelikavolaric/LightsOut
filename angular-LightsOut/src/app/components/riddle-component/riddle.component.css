@@ -53,6 +53,10 @@ body{
     background-color:#b6cc43
 }
 
+.solutionDot{
+    pointer-events: none; 
+}
+
 .buttons .solutionDot{
     height:3ex;
     width:3ex;
@@ -95,3 +99,6 @@ body{
         border-radius:1ex
     }}
 
+#congratulationsMessage h1{
+    font-size: 5ex;
+}
