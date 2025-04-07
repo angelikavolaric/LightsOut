@@ -1,0 +1,27 @@
+
+
+  <div id="solve">
+    <div class="riddleContainer row">
+      
+      <div class="col-2 col-md-2 col-sm-12 problems" >
+            <div class="buttons" *ngFor="let n of sizeOfProblem; let x=index">
+              <div *ngFor="let p of sizeOfProblem; let y=index">
+                <button (click)="solveButtonClick(getIndex(x, y))"
+                [ngClass]="{
+                  'light': problemSequence[getIndex(x, y)] === 1,
+                  'field': true}" >
+                {{ problemSequence[getIndex(x, y)] }}
+                <div class="solutionDot" *ngIf="isSholutionOn && solutionPoints[getIndex(x, y)] != 0"></div>
+              </button>
+              </div>
+            </div>
+            <button class="solutionButton" (click)="problemButtonClick()">Get solution</button> 
+            <button class="resetButton" (click)="getProblem()">Reset</button>
+            
+      </div>
+      <div id="congratulationsMessage" *ngIf="isEnd"><h1>Congratulations!</h1></div>
+    </div>
+
+  </div>
+
+
