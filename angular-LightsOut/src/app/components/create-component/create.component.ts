@@ -15,9 +15,9 @@ import { ProblemService } from '../../services/problem.service';
   styleUrl: './create.component.css'
 })
 export class CreateComponent {
-  title = 'LightsOut';
+  title = 'create LightsOut';
 
-  problem: Problem = { _id: "0", size: 2, sequence:[0, 0, 0, 0]}
+  problem: Problem = { id: "0", sequence:[0, 0, 0, 0]}
   sizeNewRiddle: number = 2
   sizeOfProblem: boolean[] = []
   problemSequence: boolean[] = []
@@ -28,20 +28,20 @@ export class CreateComponent {
    }
 
    ngOnInit() {
-    this.sizeOfProblem = new Array(this.problem.size).fill(null);
-    this.problemSequence = new Array(Math.pow(this.problem.size, 2)).fill(0)
+    this.sizeOfProblem = new Array(Math.sqrt(this.problem.sequence.length)).fill(null);
+    this.problemSequence = new Array(this.problem.sequence.length).fill(0)
    }
 
    update(newSize: number) {
-      this.problem.size = newSize
-      this.sizeOfProblem = new Array(this.problem.size).fill(null);
-      this.problemSequence = new Array(Math.pow(this.problem.size, 2)).fill(0)
+     // this.problem.size = newSize
+      this.sizeOfProblem = new Array(newSize).fill(null);
+      this.problemSequence = new Array(Math.pow(newSize, 2)).fill(0)
    }
 
    getIndex(x: number, y: number): number {
-    return y + (x * this.problem.size); // Ensure index is a number
+    let size = Math.sqrt(this.problem.sequence.length)
+    return y + (x * size); // Ensure index is a number
    }
- 
 
    revertValue(value: number): number {
     if(value == 0){

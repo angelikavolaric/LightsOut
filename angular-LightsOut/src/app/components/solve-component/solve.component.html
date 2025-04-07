@@ -3,7 +3,7 @@
   <div id="solve">
     <div class="riddleContainer row">
       
-      <button class="col-2 col-md-2 col-sm-12 problems" *ngFor="let problem of problemSequence; let i=index" [routerLink]="['/riddle', problems[i]._id]">
+      <button class="col-2 col-md-2 col-sm-12 problems" *ngFor="let problem of problemSequence; let i=index" [routerLink]="['/riddle', problems[i].id]">
             <div class="buttons" *ngFor="let n of sizeOfProblem[i]; let x=index">
               <div *ngFor="let p of sizeOfProblem[i]; let y=index">
                   <div [ngClass]="{
