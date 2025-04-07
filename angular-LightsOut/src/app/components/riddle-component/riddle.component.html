@@ -16,9 +16,10 @@
               </div>
             </div>
             <button class="solutionButton" (click)="problemButtonClick()">Get solution</button> 
-            <button class="resetButton" (click)="resetButtonClick()">Reset</button>
-
+            <button class="resetButton" (click)="getProblem()">Reset</button>
+            
       </div>
+      <div id="congratulationsMessage" *ngIf="isEnd"><h1>Congratulations!</h1></div>
     </div>
 
   </div>
