@@ -1,10 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { Problem } from '../problem';
-import { Solution } from '../solution';
 import { CommonModule } from '@angular/common';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { SolutionStep } from '../solutionStep';
 
 @Component({
   selector: 'app-root',

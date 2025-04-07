@@ -13,14 +13,16 @@ body{
     width:auto;
     text-align:center;
     align-items:center;
-    display:flex
+    display:flex;
 }
 
 .problems{
     text-align:center;
     margin:auto;
     width:auto;
-    position:relative
+    position:relative;
+    margin-top: 2ex;
+    margin-bottom: 2ex;
 }
 
 .buttons{

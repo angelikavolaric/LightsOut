@@ -2,6 +2,13 @@ body{
     background-color:#a9a9a9
 }
 
+#solve{
+    text-align:center;
+    padding:2ex 0 2ex 0;
+    background-color:#b6cc43
+}
+
+
 .riddleContainer{
     background-color:gray;
     width:auto;

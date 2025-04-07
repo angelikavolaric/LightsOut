@@ -10,18 +10,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 
 export const routes: Routes = [
-    { path: '', component: AppComponent },
     { path: 'solve', component: SolveComponent },
     { path: 'create', component: CreateComponent },
     { path: 'riddle/:id', component: RiddleComponent },
-    //{ path: '**', component: CreateComponent },
+    { path: '**', component: SolveComponent },
 ];
 
 @NgModule({
     imports: [RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload' }), 
         HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService), 
         HttpClientModule,
-        BrowserModule
+        BrowserModule,
         ],
     exports: [RouterModule]
   })

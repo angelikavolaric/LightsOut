@@ -1,3 +1,4 @@
+
 /*Navigation buttons*/
 
 .navButton {
@@ -23,11 +24,6 @@
 
 .navButton:hover {
     background-color: #585858;
-}
-
-/**/
-body {
-    background-color: darkgray;
 }
 
 main {
